@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (c) 2016 Leidos
+ -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <!-- uk.co.stasys.edoc.sectioning.Content -->
+  <class name="com.leidos.model.Content" table="Content" lazy="false">
+
+    <id name="uid" type="int" unsaved-value="-1">
+      <generator class="native"/>
+    </id>
+
+    <property name="contentClob" column="Content" type="clob"/>
+  </class>
+</hibernate-mapping>

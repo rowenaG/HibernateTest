@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (c) 2016 Leidos
+ -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <!-- uk.co.stasys.edoc.sectioning.Section -->
+  <class name="com.leidos.model.Part" table="Part"
+         polymorphism="explicit" discriminator-value="0" lazy="false">
+
+    <id name="uid" type="int" unsaved-value="-1">
+      <generator class="native"/>
+    </id>
+
+    <property name="name" column="Name" type="string"/>
+    <property name="order" column="DisplayOrder" type="int"/>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <!-- Sends log message to the console (stdout) a sensible level for this is WARN or ERROR -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{dd-MMM-yyyy HH:mm:ss,SSS} %-5p - %-35c{1} - %m%n"/>
+    </Console>
+
+    <!-- Sends log messages to a file -->
+    <RollingFile name="TextLog">
+      <FileName>C:\\ProgramData\\Leidos\\TextLog.txt</FileName>
+      <FilePattern>C:\\ProgramData\\Leidos\\TextLog.txt%d{yy-MM-dd-hh}-%i.log.zip</FilePattern>
+      <PatternLayout>
+        <Pattern>%d{dd-MMM-yyyy HH:mm:ss,SSS} %-5p - %-35c{1} - %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="100 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="5"/>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="com.leidos" level="debug" additivity="false">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="TextLog"/>
+    </Logger>
+    <Logger name="org.hibernate.SQL" level="debug" additivity="false">
+      <AppenderRef ref="TextLog"/>
+      <AppenderRef ref="Console"/>
+    </Logger>
+    <Root level="error">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

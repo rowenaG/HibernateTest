@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+    Copyright (c) 2016 Leidos
+ -->
+<hibernate-mapping>
+
+  <class name="com.leidos.model.Section" table="Section" lazy="false">
+    <id name="uid" type="int" unsaved-value="-1">
+      <column name="id" sql-type="int" not-null="true"/>
+      <generator class="native"/>
+    </id>
+    <property name="name" type="string"/>
+    <property name="partId" type="int"/>
+    <property name="contentId" type="int"/>
+  </class>
+</hibernate-mapping>
